@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
+  // TODO: Implement login screen UI
 }
 
 class MyApp extends StatelessWidget {
@@ -55,6 +56,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  int maxRetryCount = 10;
 
   void _incrementCounter() {
     setState(() {
