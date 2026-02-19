@@ -17,8 +17,9 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Project Structure
 
-- lib/features/ — feature modules
-- lib/shared/ — reusable widgets and utils
-- lib/main.dart — entry point
+lib/
+ ├─ main.dart
+ ├─ screens/
+ └─ widgets/
 
 // TODO: Implement login button functionality
