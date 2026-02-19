@@ -20,3 +20,5 @@ samples, guidance on mobile development, and a full API reference.
 - lib/features/ — feature modules
 - lib/shared/ — reusable widgets and utils
 - lib/main.dart — entry point
+
+// TODO: Implement login button functionality
