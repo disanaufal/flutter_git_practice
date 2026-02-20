@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(const MyApp());
   // TODO: Implement login screen UI
+  Text('Hello Flutter Git Practice');
 }
 
 class MyApp extends StatelessWidget {
