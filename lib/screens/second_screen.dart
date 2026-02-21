@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class SecondScreen extends StatelessWidget {
-  const SecondScreen({super.key});
+  final String message;
+
+  const SecondScreen({super.key, required this.message});
 
   @override
   Widget build(BuildContext context) {
@@ -9,8 +11,8 @@ class SecondScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Second Screen'),
       ),
-      body: const Center(
-        child: Text('Welcome to the second screen'),
+      body: Center(
+        child: Text(message),
       ),
     );
   }

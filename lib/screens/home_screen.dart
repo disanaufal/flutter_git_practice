@@ -11,7 +11,11 @@ class HomeScreen extends StatelessWidget {
         child: PrimaryButton(
           label: 'Go to Second Screen',
           onPressed: () {
-            Navigator.pushNamed(context, '/second');
+            Navigator.pushNamed(
+              context,
+              '/second',
+              arguments: 'Hello from Home Screen!',
+            );
           },
         ),
       ),

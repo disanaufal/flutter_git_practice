@@ -13,9 +13,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       initialRoute: '/',
-      routes: {
-        '/': (_) => const HomeScreen(),
-        '/second': (_) => const SecondScreen(),
+      routes: {'/': (_) => const HomeScreen()},
+      onGenerateRoute: (settings) {
+        if (settings.name == "/second") {
+          final message = settings.arguments as String;
+
+          return MaterialPageRoute(
+            builder: (_) => SecondScreen(message: message),
+          );
+        }
+        return null;
       },
     );
   }
