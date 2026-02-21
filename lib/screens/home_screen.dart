@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/primary_button.dart';
+import 'second_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -9,9 +10,14 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: PrimaryButton(
-          label: 'Press Me',
+          label: 'Go to Second Screen',
           onPressed: () {
-            // TODO: Handle button press
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => const SecondScreen(),
+              ),
+            );
           },
         ),
       ),
