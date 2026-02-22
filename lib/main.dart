@@ -1,13 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'state/counter_state.dart';
 import 'screens/home_screen.dart';
-import 'screens/second_screen.dart';
-import 'screens/counter_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => CounterState(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      home: HomeScreen(),
+    );
+  }
+}
+/*class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
@@ -29,4 +44,4 @@ class MyApp extends StatelessWidget {
       },
     );
   }
-}
+} */

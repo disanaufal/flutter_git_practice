@@ -1,38 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../state/counter_state.dart';
-import '../widgets/primary_button.dart';
-import 'profile_screen.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class ProfileScreen extends StatelessWidget {
+  const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     final counter = context.watch<CounterState>().counter;
 
     return Scaffold(
+      appBar: AppBar(title: const Text('Profile')),
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Text('Counter: $counter'),
-            PrimaryButton(
-              label: 'Increment',
+            ElevatedButton(
               onPressed: () {
                 context.read<CounterState>().increment();
               },
-            ),
-            PrimaryButton(
-              label: 'Go to Profile',
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => const ProfileScreen(),
-                  ),
-                );
-              },
+              child: const Text('Increment from Profile'),
             ),
           ],
         ),
