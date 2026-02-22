@@ -24,18 +24,46 @@ class _CounterScreenState extends State<CounterScreen> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-              count.toString(),
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+            CounterDisplay(count: count),
             const SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: increment,
-              child: const Text('Increment'),
-            ),
+            CounterButton(onIncrement: increment),
           ],
         ),
       ),
+    );
+  }
+}
+
+class CounterDisplay extends StatelessWidget {
+  final int count;
+
+  const CounterDisplay({
+    super.key,
+    required this.count,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      count.toString(),
+      style: Theme.of(context).textTheme.headlineMedium,
+    );
+  }
+}
+
+class CounterButton extends StatelessWidget {
+  final VoidCallback onIncrement;
+
+  const CounterButton({
+    super.key,
+    required this.onIncrement,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: onIncrement,
+      child: const Text('Increment'),
     );
   }
 }
