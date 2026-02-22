@@ -8,15 +8,29 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: PrimaryButton(
-          label: 'Go to Second Screen',
-          onPressed: () {
-            Navigator.pushNamed(
-              context,
-              '/second',
-              arguments: 'Hello from Home Screen!',
-            );
-          },
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Text('Home Screen'),
+            const SizedBox(height: 16),
+            PrimaryButton(
+              label: 'Go to Second Screen',
+              onPressed: () {
+                Navigator.pushNamed(
+                  context,
+                  '/second',
+                  arguments: 'Hello from Home Screen!',
+                );
+              },
+            ),
+            const SizedBox(height: 12),
+            PrimaryButton(
+              label: 'Go to Counter Screen',
+              onPressed: () {
+                Navigator.pushNamed(context, '/counter');
+              },
+            ),
+          ],
         ),
       ),
     );

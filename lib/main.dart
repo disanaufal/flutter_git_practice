@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'screens/home_screen.dart';
 import 'screens/second_screen.dart';
+import 'screens/counter_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,10 +18,12 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: (settings) {
         if (settings.name == "/second") {
           final message = settings.arguments as String;
-
           return MaterialPageRoute(
             builder: (_) => SecondScreen(message: message),
           );
+        }
+        if (settings.name == "/counter") {
+          return MaterialPageRoute(builder: (_) => const CounterScreen());
         }
         return null;
       },
