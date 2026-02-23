@@ -18,7 +18,7 @@ class ProfileScreen extends StatelessWidget {
             Text('Counter: $counter'),
             ElevatedButton(
               onPressed: () {
-                context.read<CounterState>().increment();
+                context.read<CounterState>().incrementAsync();
               },
               child: const Text('Increment from Profile'),
             ),

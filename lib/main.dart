@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'state/counter_state.dart';
 import 'screens/home_screen.dart';
+import 'data/counter_repository.dart';
 
 void main() {
   runApp(
     ChangeNotifierProvider(
-      create: (_) => CounterState(),
+      create: (_) => CounterState(CounterRepository()),
       child: const MyApp(),
     ),
   );

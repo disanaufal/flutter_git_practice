@@ -3,26 +3,38 @@ import 'package:provider/provider.dart';
 import '../state/counter_state.dart';
 import '../widgets/primary_button.dart';
 import 'profile_screen.dart';
+import '../state/counter_status.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final counter = context.watch<CounterState>().counter;
+    final state = context.watch<CounterState>();
 
-    return Scaffold(
-      body: Center(
-        child: Column(
+    Widget content;
+
+    switch (state.status) {
+      case CounterStatus.loading:
+        content = const CircularProgressIndicator();
+        break;
+
+      case CounterStatus.error:
+        content = Text(state.error ?? 'Unknown error');
+        break;
+
+      default:
+        content = Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text('Counter: $counter'),
+            Text('Counter: ${state.counter}'),
             PrimaryButton(
-              label: 'Increment',
+              label: 'Increment (Async)',
               onPressed: () {
-                context.read<CounterState>().increment();
+                context.read<CounterState>().incrementAsync();
               },
             ),
+            const SizedBox(height: 16),
             PrimaryButton(
               label: 'Go to Profile',
               onPressed: () {
@@ -35,8 +47,9 @@ class HomeScreen extends StatelessWidget {
               },
             ),
           ],
-        ),
-      ),
-    );
+        );
+    }
+
+    return Scaffold(body: Center(child: content));
   }
 }
